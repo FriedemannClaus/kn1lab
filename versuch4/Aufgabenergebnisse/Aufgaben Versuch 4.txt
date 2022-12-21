@@ -1,0 +1,135 @@
+Aufgabe 1
+-----------------------------------
+1.1:
+Die Größe des Staukontrollfensters beträgt 46,7 KBytes und verhält sich stabil. Frage von unserer Seite: Warum ist das immer ein anderer Grundwert. 
+1.3:
+=== Summary ===
+Filename:  2022-12-15_11:55:12-kn1-lab.cnl
+Comment:   
+Hostname:  kn1-lab
+Kernel:    4.19.0-22-amd64
+
+Start:     2022-12-15_11:55:22
+End:       2022-12-15_11:56:24
+Duration:  62
+
+CPUs: CPU0, CPU1
+NICs: sv1-eth1
+
+== Average transmission rates ==
+sv1-eth1.send:       0.02 MBits/s
+sv1-eth1.receive:       0.92 MBits/s
+
+Aufgabe 2
+-----------------------------------
+2.1:
+=== Summary ===
+Filename:  2022-12-15_12:11:57-kn1-lab.cnl
+Comment:   
+Hostname:  kn1-lab
+Kernel:    4.19.0-22-amd64
+
+Start:     2022-12-15_12:12:00
+End:       2022-12-15_12:13:02
+Duration:  62
+
+CPUs: CPU0, CPU1
+NICs: sv1-eth1, sv1-eth2
+
+== Average transmission rates ==
+sv1-eth1.send:       0.01 MBits/s
+sv1-eth1.receive:       0.83 MBits/s
+sv1-eth2.send:       0.01 MBits/s
+sv1-eth2.receive:       0.13 MBits/s
+
+2.2:
+Durchschnittliche Auslastung bei Empfang schlechter. 
+
+2.3:
+Die Aufteilung der Daten war nicht fair, da die durchschnittliche Übertragungsrate beider Schnittstellen stark variiert. 
+
+2.4:
+=== Summary ===
+Filename:  2022-12-15_12:26:06-kn1-lab.cnl
+Comment:   
+Hostname:  kn1-lab
+Kernel:    4.19.0-22-amd64
+
+Start:     2022-12-15_12:26:08
+End:       2022-12-15_12:27:10
+Duration:  62
+
+CPUs: CPU0, CPU1
+NICs: sv1-eth1, sv1-eth2
+
+== Average transmission rates ==
+sv1-eth1.send:        0.0 MBits/s
+sv1-eth1.receive:        0.1 MBits/s
+sv1-eth2.send:        0.0 MBits/s
+sv1-eth2.receive:       0.88 MBits/s
+
+Das Ergebnis unterscheidet sich sehr stark. Die TCP-Verbindung (eth1) büßt sehr stark bei der Übertragungsrate ein. UDP hat hingegegen eine sehr hohe Übertragungsrate im Vergleich dazu. 
+
+Aufgabe 3
+-----------------------------------
+3.1
+Aufgrund des Paketsverlusts müssen Pakete erneut gesendet werden. Die Anzahl der erneut gesendeten Pakete hängt von den verlorenen Paketen ab. Dadurch variiert der Datenverkehr und somit auch das Staukontrollfenster stärker. 
+
+3.2
+=== Summary ===
+Filename:  2022-12-21_14:52:46-kn1-lab.cnl
+Comment:   
+Hostname:  kn1-lab
+Kernel:    4.19.0-22-amd64
+
+Start:     2022-12-21_14:52:49
+End:       2022-12-21_14:53:50
+Duration:  61
+
+CPUs: CPU0, CPU1
+NICs: sv1-eth1
+
+== Average transmission rates ==
+sv1-eth1.send:       0.02 MBits/s
+sv1-eth1.receive:       0.91 MBits/s
+
+Die Durchschnittsrate ist ungefähr gleich. Warum? Da keine Konkurrenz zu einem zweiten Client vorhanden ist, genau wie bei Aufgabe 1. 
+
+Aufgabe 4
+-----------------------------------
+=== Summary ===  CLIENT
+Filename:  2022-12-21_15:36:08-kn1-lab.cnl
+Comment:   
+Hostname:  kn1-lab
+Kernel:    4.19.0-22-amd64
+
+Start:     2022-12-21_15:36:11
+End:       2022-12-21_15:37:16
+Duration:  66
+
+CPUs: CPU0, CPU1
+NICs: c1-eth1
+
+== Average transmission rates ==
+c1-eth1.send:       0.93 MBits/s
+c1-eth1.receive:        0.0 MBits/s
+
+=== Summary ===   SERVER
+Filename:  2022-12-21_15:36:11-kn1-lab.cnl
+Comment:   
+Hostname:  kn1-lab
+Kernel:    4.19.0-22-amd64
+
+Start:     2022-12-21_15:36:13
+End:       2022-12-21_15:37:16
+Duration:  63
+
+CPUs: CPU0, CPU1
+NICs: sv1-eth1
+
+== Average transmission rates ==
+sv1-eth1.send:        0.0 MBits/s
+sv1-eth1.receive:       0.86 MBits/s
+
+Die Durchschnittsrate ist ungefähr 10% niedriger, da die Verlustleistung auf 10% erhöht wurde. 
+
